@@ -1,11 +1,12 @@
 # Socialgram
 
-A modern social media app, created with **React** and **Appwrite** for a seemles backend experience.
+A modern social media app built with React and Appwrite. It demonstrates a full-stack workflow using TypeScript, Tailwind CSS, and React Query for efficient client-server integrations.
 
-## Motive
+## **Motive**
 
-I built this project mainly to showcase proficiency in performing efficient, scalable HTTP calls, administering server application programming interfaces(APIs) and providing smooth staple between front-end to backend technologies.
-Through Socialgram I hope to demostrate my skills in React, Typescript, Tailwind css, Appwrite and modern software development practices, and my love of solving real-world problems with code. Inspired by JSM.
+I built this project to showcase my proficiency in creating efficient, scalable HTTP integrations, managing server-side APIs, and ensuring seamless communication between frontend and backend systems.
+
+Through Socialgram, I aim to demonstrate expertise in React, TypeScript, Tailwind CSS, Appwrite, and modern frontend engineering practices.
 
 ## Tech Stack
 
@@ -21,38 +22,67 @@ Through Socialgram I hope to demostrate my skills in React, Typescript, Tailwind
 ## Features
 
 - User authentication with secure signup & login
-- Real-time updates with tanstack query & mutations
-- Responsive design for all devices
+- Real-time updates with React Query (queries & mutations)
+- Responsive design for mobile and desktop
+- Post creation, edit and delete flows
 
-## Setup Steps
+## Quick start
 
-1. Clone repository & cd into socialgram
-2. Install dependencies using `npm install`
+Prerequisites: Node.js 18+ is recommended and npm available.
 
-### Setup Environment Variables (.env.loca)
-
-```
-VITE_APPWRITE_URL=
-VITE_APPWRITE_PROJECT_ID=
-VITE_APPWRITE_DATABASE_ID=
-VITE_APPWRITE_STORAGE_ID=
-VITE_APPWRITE_USER_COLLECTION_ID=
-VITE_APPWRITE_POST_COLLECTION_ID=
-VITE_APPWRITE_SAVES_COLLECTION_ID=
+```bash
+git clone https://github.com/huduhamed/socialgram.git
+cd socialgram
+npm install
+# Copy the example env and fill values
+cp .env.local.example .env.local
+npm run dev      # start dev server
+npm run build    # build for production
 ```
 
-3. Start the development server with `npm run dev`.
+## Requirements
+
+- Node.js 18+ (or use your preferred version manager, e.g. nvm)
+- npm
+
+## Environment variables (.env.local.example)
+
+Create a `.env.local` file at the project root (do not commit secrets). Example keys:
+
+```
+VITE_APPWRITE_URL=https://your-appwrite.example.com
+VITE_APPWRITE_PROJECT_ID=your_project_id
+VITE_APPWRITE_DATABASE_ID=your_database_id
+VITE_APPWRITE_STORAGE_ID=your_storage_bucket_id
+VITE_APPWRITE_USER_COLLECTION_ID=users_collection_id
+VITE_APPWRITE_POST_COLLECTION_ID=posts_collection_id
+VITE_APPWRITE_SAVES_COLLECTION_ID=saves_collection_id
+```
+
+For exact collection/field names used by the app, check the collections referenced in `src/lib/appwrite/api.ts` and related queries under `src/lib/react-query/queriesAndMutations.ts`.
+
+## Appwrite setup
+
+1. Create an Appwrite project and note the project ID and endpoint URL.
+2. Create a Database and the collections required by the app (users, posts, saves). Configure the fields and permissions according to your needs.
+3. Create a Storage bucket for file uploads and note the bucket ID.
+4. Configure CORS and any required security rules so the frontend can talk to your Appwrite instance.
+
+## Scripts
+
+- `npm run dev` — start Vite dev server
+- `npm run build` — run TypeScript build and create a production bundle
 
 ## Status
 
-All current features funtional, user can create, update, edit and delete post. Comments section coming soon!.
+All current core features are functional: users can create, update, edit and delete posts. Comments UI is planned and in progress.
 
 ### Todo
 
-- [x] Create commets section in api
-- [x] Create comments attribute in appwrite
-- [x] Implement mutations in queries & mutations for creating comment, updating and deleting functionality
-- [ ] Implement comment UI under PostCard
+- [x] Create comments section in API
+- [x] Create comments attribute in Appwrite
+- [x] Implement mutations for creating, updating and deleting comments
+- [ ] Implement comment UI under `PostCard`
 - [ ] Testing
 
 ![explore page](public/assets/images/explore.png)
